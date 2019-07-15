@@ -1,16 +1,31 @@
-# biometric_auth
+# flutter biometric_auth
 
-A new Flutter project.
+Fingerprint authentication flutter
+
+![20190715_204624](https://user-images.githubusercontent.com/43071332/61228205-70492500-a743-11e9-9b04-b8ee775dd716.gif)
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Note:- If you are using latest version of local_auth then you have to migrate android x. 
+visit : https://flutter.dev/docs/development/packages-and-plugins/androidx-compatibility
 
-A few resources to get you started if this is your first Flutter project:
+Note: If you are getting this error- [  no fragmentactivity, local auth plugin requires activity to be a FragmentActivity., null ]
+then follow these steps:- 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+In MainActivity.java replace existing codes with these codes:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+import android.os.Bundle;
+import io.flutter.app.FlutterActivity;
+import io.flutter.plugins.GeneratedPluginRegistrant;
+import io.flutter.app.FlutterFragmentActivity;
+
+public class MainActivity extends FlutterFragmentActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+  }
+}
+
+
